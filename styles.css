@@ -1,0 +1,56 @@
+/* Общий стиль страницы */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  text-align: center;
+  padding: 40px;
+  margin: 0;
+}
+
+/* Заголовок */
+h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+/* Сетка кнопок */
+.pad-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Общий стиль кнопок */
+.pad-button {
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  white-space: nowrap;
+}
+
+/* Эффекты при наведении */
+.pad-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+
+/* Индивидуальные цвета кнопок */
+.pad-button:nth-child(1) { background-color: #e91e63; } /* Гламур */
+.pad-button:nth-child(2) { background-color: #9c27b0; } /* Мне не важно */
+.pad-button:nth-child(3) { background-color: #f44336; } /* Иномарки */
+.pad-button:nth-child(4) { background-color: #ffeb3b; color: #000; } /* Блонды */
+.pad-button:nth-child(5) { background-color: #00bcd4; } /* Лайфстайл */
+.pad-button:nth-child(6) { background-color: #ff9800; } /* Я хэдлайнер */
+.pad-button:nth-child(7) { background-color: cadetblue; } /* И брюнетки */
+.pad-button:nth-child(8) { background-color: #337936; } /* Бабки */
+.pad-button:nth-child(9) { background-color: #2196f3; } /* На пьянке */
