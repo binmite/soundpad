@@ -61,24 +61,28 @@ h1 {
   bottom: 20px;
   left: 20px;
   display: flex;
-  gap: 10px;
-  z-index: 9999;
-  background: red; /* Яркий фон для проверки */
-  padding: 15px;
-  border-radius: 30px;
+  gap: 5px;
   cursor: pointer;
-}
-
-.question-mark {
-  font-size: 40px !important; /* Крупнее */
-  color: white !important; /* Яркий цвет */
-  font-weight: bold;
+  z-index: 100;
+  padding: 10px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
 }
 
 .mystery-trigger:hover {
   transform: scale(1.1);
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.question-mark {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  animation: pulse 2s infinite;
 }
 
 .question-mark:nth-child(2) {
@@ -113,6 +117,7 @@ h1 {
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
   animation: fadeIn 0.3s ease;
+  overflow-y: auto; /* Добавляет скролл для всего модального окна */
 }
 
 @keyframes fadeIn {
@@ -122,7 +127,7 @@ h1 {
 
 .modal-content {
   background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-  margin: 10% auto;
+  margin: 20px auto; /* Автоматические отступы сверху и снизу */
   padding: 30px;
   border: 2px solid #ffd700;
   border-radius: 20px;
@@ -131,17 +136,44 @@ h1 {
   box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
   color: white;
   position: relative;
+  max-height: 90vh; /* Ограничиваем высоту контента */
+  overflow-y: auto; /* Добавляет скролл внутри контента */
+}
+
+/* Стили для красивого скролла */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #ffed4a;
 }
 
 .close-modal {
-  position: absolute;
-  right: 20px;
-  top: 10px;
+  position: sticky; /* Крестик прилипает к верху при скролле */
+  top: 0;
+  float: right;
   color: #aaa;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
   transition: color 0.3s ease;
+  z-index: 10;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a); /* Фон чтобы крестик не сливался */
+  width: fit-content;
+  padding: 0 10px;
+  border-radius: 50%;
+  line-height: 40px;
 }
 
 .close-modal:hover {
@@ -154,6 +186,7 @@ h1 {
   border-radius: 10px;
   margin: 20px 0;
   border: 1px solid #ffd700;
+  clear: both; /* Чтобы не наезжать на крестик */
 }
 
 .encrypted-message code {
@@ -225,4 +258,46 @@ h1 {
   border: 2px solid #ffd700;
   border-radius: 10px;
   overflow: hidden;
+}
+
+.video-container video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+  
+  .modal-content {
+    margin: 10px auto;
+    padding: 20px;
+    width: 95%;
+  }
+  
+  .encrypted-message code {
+    font-size: 18px;
+  }
+  
+  .mystery-trigger {
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .question-mark {
+    font-size: 24px;
+  }
+  
+  .pad-container {
+    gap: 10px;
+  }
+  
+  .pad-button {
+    padding: 15px;
+    font-size: 16px;
+    white-space: normal; /* Разрешаем перенос текста на мобильных */
+  }
 }
