@@ -7,6 +7,42 @@
 </head>
 <body>
   <h1>🤟 ЭЭЭЭЭН-КЕЙ 🤟</h1>
+  
+  <!-- Элемент с вопросительными знаками -->
+  <div class="mystery-trigger" id="mysteryTrigger">
+    <span class="question-mark">?</span>
+    <span class="question-mark">?</span>
+    <span class="question-mark">?</span>
+  </div>
+  
+  <!-- Модальное окно с загадкой -->
+  <div class="modal" id="mysteryModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2>🔐 СЕКРЕТНОЕ СООБЩЕНИЕ 🔐</h2>
+      
+      <div class="encrypted-message">
+        <p>Зашифрованный текст:</p>
+        <code id="encryptedText">23 15 12 15 20 15 11 1 11 16 13 21 25 10 33 4 15 13 21</code>
+      </div>
+      
+      <div class="password-section">
+        <label for="passwordInput">Введи пароль, позер:</label>
+        <input type="password" id="passwordInput" placeholder="••••••">
+        <button id="submitPassword">Открыть</button>
+        <p class="error-message" id="errorMessage"></p>
+      </div>
+      
+      <!-- Контейнер для видео (изначально скрыт) -->
+      <div class="video-container hidden" id="videoContainer">
+        <video id="congratsVideo" controls width="100%">
+          <source src="videos/congrats.mp4" type="video/mp4">
+          Используй адекватный браузер и тогда загрузится
+        </video>
+      </div>
+    </div>
+  </div>
+
   <div class="pad-container">
     <button class="pad-button" data-sound="sounds/ГЛАМУР.wav">Гламур</button>
     <button class="pad-button" data-sound="sounds/БЛОНДЫ.wav">Блонды</button>
@@ -22,5 +58,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
