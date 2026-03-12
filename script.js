@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       // Неправильный пароль
       errorMessage.style.color = '#ff4444';
-      errorMessage.textContent = '✗ Неверно! Попробуй расшифровать текст еще раз.';
+      errorMessage.textContent = '✗ Неверно! Ну ты и позер';
       passwordInput.value = '';
       passwordInput.focus();
       
