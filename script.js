@@ -7,7 +7,7 @@ document.querySelectorAll('.pad-button').forEach(button => {
   });
 });
 
-// Новый функционал для секретного окна с шифром
+// Новый функционал для секретного окна
 document.addEventListener('DOMContentLoaded', function() {
   const mysteryTrigger = document.getElementById('mysteryTrigger');
   const modal = document.getElementById('mysteryModal');
@@ -20,11 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const encryptedTextElement = document.getElementById('encryptedText');
   
   // ========== НАСТРОЙКИ ШИФРА ==========
-  // Сюда впиши свой зашифрованный текст (то, что увидит пользователь)
-  const encryptedMessage = "ОЧ ЮНВ МЬЮЙК ЙБ ДЬЛКИЙЕФШ ИКЪ РЬИЕЗЕЪ"; // Пример: "С ДНЁМ РОЖДЕНИЯ" со сдвигом 3
+  // Зашифрованное сообщение (то, что видит пользователь)
+  const encryptedMessage = "ОЧ ЮНВ МЬЮЙК ЙБ ДЬЛКИЙЕФШ ИКЪ РЬИЕЗЕЪ";
   
-  // Сюда впиши правильный ответ (то, что должен ввести пользователь)
-  const CORRECT_PASSWORD = "ТЫ ВСЁ РАВНО НЕ ЗАПОМНИШЬ МОЮ ФАМИЛИЮ"; // Оригинальное сообщение
+  // Правильный ответ (то, что должен ввести пользователь)
+  const CORRECT_PASSWORD = "ты всё равно не запомнишь мою фамилию";
   // ======================================
   
   // Устанавливаем зашифрованный текст в элемент
@@ -73,10 +73,17 @@ document.addEventListener('DOMContentLoaded', function() {
   function checkPassword() {
     const enteredPassword = passwordInput.value.trim().toLowerCase();
     
+    // Для отладки - посмотрим в консоль
+    console.log('Введено:', enteredPassword);
+    console.log('Длина введенного:', enteredPassword.length);
+    console.log('Ожидается:', CORRECT_PASSWORD);
+    console.log('Длина ожидаемого:', CORRECT_PASSWORD.length);
+    console.log('Совпадение:', enteredPassword === CORRECT_PASSWORD);
+    
     if (enteredPassword === CORRECT_PASSWORD) {
       // Правильный пароль
       errorMessage.style.color = '#00ff00';
-      errorMessage.textContent = '✓ Ладно, позер, пропускаю';
+      errorMessage.textContent = '✓ Поздравляю! Ты расшифровал сообщение! 🎉';
       
       // Показываем расшифрованное сообщение (оригинал)
       encryptedTextElement.textContent = CORRECT_PASSWORD;
@@ -95,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       // Неправильный пароль
       errorMessage.style.color = '#ff4444';
-      errorMessage.textContent = '✗ Неправильно! Ну ты позер.';
+      errorMessage.textContent = '✗ Неверно! Попробуй расшифровать текст еще раз.';
       passwordInput.value = '';
       passwordInput.focus();
       
